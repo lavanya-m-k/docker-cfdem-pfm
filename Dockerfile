@@ -10,8 +10,8 @@ RUN useradd --shell /bin/bash cfdem
 RUN mkdir -p /opt/CFDEM/CFDEMcoupling && mkdir -p /root/CFDEM/-6
 RUN git clone https://github.com/ParticulateFlow/LIGGGHTS-PFM.git /opt/CFDEM/LIGGGHTS
 RUN git clone https://github.com/ParticulateFlow/CFDEMcoupling-PFM.git /opt/CFDEM/CFDEMcoupling
-RUN sed -i "28s,/root/OpenFOAM/OpenFOAM-6,/opt/openfoam6," /opt/CFDEM/CFDEMcoupling/etc/bashrc 
-RUN sed -i "9,14s/root/opt/" /opt/CFDEM/CFDEMcoupling/etc/compileLIGGGHTS.sh
+RUN sed -i "28s,\$HOME/OpenFOAM/OpenFOAM-6,/opt/openfoam6," /opt/CFDEM/CFDEMcoupling/etc/bashrc
+RUN sed -i "31s,\$HOME,/opt," /opt/CFDEM/CFDEMcoupling/etc/bashrc
 RUN echo "source /opt/openfoam6/etc/bashrc" >> $HOME/.bashrc
 RUN echo "source /opt/CFDEM/CFDEMcoupling/etc/bashrc" >> $HOME/.bashrc
 RUN bash -c "shopt -s expand_aliases && source /opt/openfoam6/etc/bashrc && source /opt/CFDEM/CFDEMcoupling/etc/bashrc &&  bash /opt/CFDEM/CFDEMcoupling/etc/compileLIGGGHTS.sh"
