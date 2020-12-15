@@ -3,8 +3,8 @@ FROM ubuntu:bionic
 WORKDIR  /opt
 ENV WM_NCOMPPROCS 2
 
-RUN apt-get install sudo
-RUN sudo apt-get update && sudo apt-get install -y build-essential cmake openmpi-bin libopenmpi-dev python-dev git bc
+RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
+RUN sudo apt-get install -y build-essential cmake openmpi-bin libopenmpi-dev python-dev git bc
 RUN sudo apt-get install -y software-properties-common wget apt-transport-https && sudo sh -c "wget -O - http://dl.openfoam.org/gpg.key | apt-key add -" && sudo add-apt-repository http://dl.openfoam.org/ubuntu
 RUN sudo apt-get update && sudo apt-get -y install openfoam6
 RUN useradd --shell /bin/bash cfdem
