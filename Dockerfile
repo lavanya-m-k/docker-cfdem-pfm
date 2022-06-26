@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:trusty
 
 WORKDIR  /home/cfdem/CFDEM/CFDEMcoupling
 ENV WM_NCOMPPROCS 2
