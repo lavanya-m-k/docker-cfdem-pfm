@@ -1,0 +1,5 @@
+name: 'docker-cfdem-pfm'
+description: 'Build of container with latest cfdemcoupling-pfm code on Ubuntu bionic.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
